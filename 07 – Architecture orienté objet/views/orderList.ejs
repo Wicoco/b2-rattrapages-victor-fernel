@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Liste des Commandes</title>
+  <style>
+    .statut-Commande { color: blue; }
+    .statut-Encours { color: orange; }
+    .statut-Réalisée { color: green; }
+    .statut-Annulée { color: red; }
+  </style>
+</head>
+<body>
+  <h2>Commandes passées</h2>
+  <a href="/orders/new">Nouvelle commande</a>
+  <table border="1">
+      <tr>
+        <th>Nom</th><th>Prénom</th><th>Adresse</th><th>Email</th><th>Prix</th><th>Statut</th><th>Action</th>
+      </tr>
+      <% orders.forEach(order => { %>
+        <tr>
+          <td><%= order.nom %></td>
+          <td><%= order.prenom %></td>
+          <td><%= order.adresse %></td>
+          <td><%= order.email %></td>
+          <td><%= order.prix %> €</td>
+          <td class="statut-<%= order.statut.replace(/ /g,'').replace(/[ée]/g,'e') %>"> 
+            <%= order.statut %>
+          </td>
+          <td>
+            <form method="POST" action="/orders/update/<%= order._id %>">
+              <select name="statut">
+                <option <%= order.statut === 'Commande prise en compte' ? 'selected' : '' %>>Commande prise en compte</option>
+                <option <%= order.statut === 'En cours' ? 'selected' : '' %>>En cours</option>
+                <option <%= order.statut === 'Réalisée' ? 'selected' : '' %>>Réalisée</option>
+                <option <%= order.statut === 'Annulée' ? 'selected' : '' %>>Annulée</option>
+              </select>
+              <button type="submit">MAJ</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+  </table>
+</body>
+</html>
