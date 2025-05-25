@@ -25,5 +25,3 @@ app.use("/orders", orderRoutes);
 app.get("/", (req, res) => res.redirect("/orders/new"));
 
 app.listen(3000, () => console.log("Serveur sur http://localhost:3000"));
-
-SS;
