@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nouvelle Commande</title>
+</head>
+<body>
+    <h2>Formulaire de commande</h2>
+    <form method="POST" action="/orders/new">
+        <label>Nom: <input type="text" name="nom" required></label><br/>
+        <label>Prénom: <input type="text" name="prenom" required></label><br/>
+        <label>Adresse: <input type="text" name="adresse" required></label><br/>
+        <label>Email: <input type="email" name="email" required></label><br/>
+        <button type="submit">Passer commande</button>
+    </form>
+    <a href="/orders/list">Voir les commandes</a>
+</body>
+</html>
