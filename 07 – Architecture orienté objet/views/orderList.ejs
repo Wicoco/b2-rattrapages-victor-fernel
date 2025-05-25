@@ -1,44 +1,52 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Liste des Commandes</title>
-  <style>
-    .statut-Commande { color: blue; }
-    .statut-Encours { color: orange; }
-    .statut-Réalisée { color: green; }
-    .statut-Annulée { color: red; }
-  </style>
-</head>
-<body>
-  <h2>Commandes passées</h2>
-  <a href="/orders/new">Nouvelle commande</a>
-  <table border="1">
+<%- include('partials/header') %>
+<div class="container">
+  <h2>Liste des commandes</h2>
+  <a href="/orders/new" class="btn" style="margin-bottom:12px;">Nouvelle commande</a>
+  <table class="table">
+    <thead>
       <tr>
-        <th>Nom</th><th>Prénom</th><th>Adresse</th><th>Email</th><th>Prix</th><th>Statut</th><th>Action</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Adresse</th>
+        <th>Email</th>
+        <th>Prix</th>
+        <th>Statut</th>
+        <th>Changer statut</th>
+        <th>Supprimer</th>
       </tr>
-      <% orders.forEach(order => { %>
-        <tr>
-          <td><%= order.nom %></td>
-          <td><%= order.prenom %></td>
-          <td><%= order.adresse %></td>
-          <td><%= order.email %></td>
-          <td><%= order.prix %> €</td>
-          <td class="statut-<%= order.statut.replace(/ /g,'').replace(/[ée]/g,'e') %>"> 
+    </thead>
+    <tbody>
+    <% orders.forEach(order => { %>
+      <tr>
+        <td><%= order.nom %></td>
+        <td><%= order.prenom %></td>
+        <td><%= order.adresse %></td>
+        <td><%= order.email %></td>
+        <td><%= order.prix %> €</td>
+        <td>
+          <span class="status status-<%= order.statut ? order.statut.split(' ')[0] : '' %>">
             <%= order.statut %>
-          </td>
-          <td>
-            <form method="POST" action="/orders/update/<%= order._id %>">
-              <select name="statut">
-                <option <%= order.statut === 'Commande prise en compte' ? 'selected' : '' %>>Commande prise en compte</option>
-                <option <%= order.statut === 'En cours' ? 'selected' : '' %>>En cours</option>
-                <option <%= order.statut === 'Réalisée' ? 'selected' : '' %>>Réalisée</option>
-                <option <%= order.statut === 'Annulée' ? 'selected' : '' %>>Annulée</option>
-              </select>
-              <button type="submit">MAJ</button>
-            </form>
-          </td>
-        </tr>
-      <% }) %>
+          </span>
+        </td>
+        <td>
+          <form action="/orders/update/<%= order._id %>" method="POST" style="display:inline;">
+            <select name="statut">
+              <option <%= order.statut === "Commande prise en compte" ? "selected" : "" %>>Commande prise en compte</option>
+              <option <%= order.statut === "En cours" ? "selected" : "" %>>En cours</option>
+              <option <%= order.statut === "Réalisée" ? "selected" : "" %>>Réalisée</option>
+              <option <%= order.statut === "Annulée" ? "selected" : "" %>>Annulée</option>
+            </select>
+            <button type="submit" class="btn btn-secondary">OK</button>
+          </form>
+        </td>
+        <td>
+          <form action="/orders/delete/<%= order._id %>" method="POST" onsubmit="return confirm('Supprimer cette commande ?');" style="display:inline;">
+            <button type="submit" class="btn btn-secondary" style="background:#ef4444;color:white;">🗑️</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+    </tbody>
   </table>
-</body>
-</html>
+</div>
+<%- include('partials/footer') %>

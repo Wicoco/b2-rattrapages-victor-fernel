@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Gestion des commandes</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #f8fafc;
+        color: #222;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 900px;
+        margin: 28px auto;
+        background: #fff;
+        border-radius: 13px;
+        box-shadow: 0 4px 14px rgba(20, 30, 60, 0.07);
+        padding: 26px 30px 30px 30px;
+      }
+      h2 {
+        margin-top: 0;
+      }
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 12px;
+        background: #fff;
+        border-radius: 7px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(100, 110, 130, 0.04);
+      }
+      .table th,
+      .table td {
+        padding: 14px 10px;
+        border-bottom: 1px solid #e3e8ee;
+        text-align: left;
+      }
+      .table th {
+        font-size: 1.02em;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        background: #f1f3f8;
+      }
+      .btn,
+      .btn-secondary {
+        background: #3b82f6;
+        color: white;
+        padding: 8px 17px;
+        border-radius: 5px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition: background 0.15s;
+        font-size: 1em;
+        margin-right: 2px;
+        display: inline-block;
+      }
+      .btn:hover,
+      .btn-secondary:hover {
+        background: #2563eb;
+      }
+      .btn-secondary {
+        background: #e5e7eb;
+        color: #222;
+      }
+      .btn-secondary:hover {
+        background: #d1d5db;
+        color: #111;
+      }
+      /* Status badges */
+      .status {
+        padding: 4px 14px;
+        border-radius: 25px;
+        font-size: 0.92em;
+        font-weight: 600;
+        display: inline-block;
+        margin-left: 2px;
+      }
+      .status-Commande {
+        background: #dbeafe;
+        color: #2563eb;
+      }
+      .status-En {
+        background: #fef9c3;
+        color: #b45309;
+      }
+      .status-Réalisée {
+        background: #bbf7d0;
+        color: #38a169;
+      }
+      .status-Annulée {
+        background: #fee2e2;
+        color: #dc2626;
+      }
+      form > div {
+        margin-bottom: 18px;
+      }
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        color: #444;
+      }
+      input[type="text"],
+      input[type="email"],
+      select {
+        width: 100%;
+        padding: 8px 13px;
+        border-radius: 4px;
+        border: 1px solid #d4d7dd;
+        background: #f8fafc;
+        box-sizing: border-box;
+        font-size: 1em;
+      }
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      select:focus {
+        outline: 2px solid #3b82f6;
+        border-color: #3b82f6;
+        background: #fff;
+      }
+      @media (max-width: 700px) {
+        .container {
+          padding: 6vw 2vw;
+          max-width: 98vw;
+        }
+        .table th,
+        .table td {
+          padding: 9px 4px;
+          font-size: 0.97em;
+        }
+      }
+    </style>
+  </head>
+  <body></body>
+</html>
