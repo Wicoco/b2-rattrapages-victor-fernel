@@ -2,6 +2,9 @@
 
 Projet réalisé pour le module "Architecture orientée objet".
 
+🔗 [Voir la démo vidéo sur YouTube](https://youtu.be/QecRAG97jNQ)
+
+
 ## 💾 Fonctionnalités
 
 - Formulaire de saisie de commande (nom, prénom, adresse, email)
@@ -29,19 +32,15 @@ npm install
 
 ### 3. Configurer la connexion MongoDB Atlas
 
-Créer un fichier `.env` à la racine du projet avec :  
+Créer un fichier `.env` à la racine du projet avec :
+
 ```env
 MONGO_URI=mongodb+srv://<utilisateur>:<motdepasse>@cluster0.xxxxx.mongodb.net/maBdd
 ```
+
 Remplacer `<utilisateur>`, `<motdepasse>` et `maBdd` par vos informations réelles.
 
 ### 4. Démarrer le serveur
-
-```
-npm start
-```
-
-ou
 
 ```
 node app.js
@@ -49,7 +48,8 @@ node app.js
 
 ### 5. Utiliser l’application
 
-Ouvrir [http://localhost:3000](http://localhost:3000) dans le navigateur pour :  
+Ouvrir [http://localhost:3000](http://localhost:3000) dans le navigateur pour :
+
 - Saisir de nouvelles commandes (accueil)
 - Voir la liste des commandes et changer leur statut (page dédiée)
 
@@ -67,6 +67,9 @@ Ouvrir [http://localhost:3000](http://localhost:3000) dans le navigateur pour :
 ├── routes/
 │   └── orderRoutes.js
 ├── views/
+│   ├──  partials/
+│   │     ├──footer.ejs
+│   │     └──header.ejs
 │   ├── orderForm.ejs
 │   └── orderList.ejs
 ├── package.json
